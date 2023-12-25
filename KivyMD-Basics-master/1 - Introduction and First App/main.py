@@ -5,4 +5,3 @@ class DemoApp(MDApp):
         return
 
 DemoApp().run()
-
