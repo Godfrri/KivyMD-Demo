@@ -12,7 +12,8 @@ class MainApp(App):
     def build(self):
         layout = GridLayout(cols = 2, row_force_default = True, row_default_height = 40)
 
-        btn = Button(text = 'Button 1', size_hint = (None, None), width = 100, height = 40)
+        btn = Button(text = 'Button 1', 
+                     size_hint = (None, None), width = 100, height = 40)
         btn2 = Button(text = 'Button 2')
 
         btn3 = Button(text = 'Button 3', size_hint = (None, None), width = 100, height = 40)

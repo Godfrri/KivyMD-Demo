@@ -12,14 +12,17 @@ Window.size = (360, 600)
 class MainApp(App):
     def build(self):
 
-        layout = GridLayout(cols = 2, row_force_default = True, row_default_height = 40,
+        layout = GridLayout(cols = 2, 
+                            row_force_default = True, row_default_height = 40,
                             padding = 10, spacing = 20)
         
 
         self.v1 = TextInput(text = 'Enter Value 1 :')
         self.v2 = TextInput(text = 'Enter Value 2 :')
 
-        btn = Button(text = 'Submit', on_press = self.submit, pos_hint = {'center_x':0.5})
+        btn = Button(text = 'Submit', 
+                     on_press = self.submit, 
+                     pos_hint = {'center_x':0.5})
 
         layout.add_widget(self.v1)
         layout.add_widget(self.v2)
