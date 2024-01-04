@@ -1,3 +1,6 @@
+#! Youtube Video
+# https://youtu.be/f_3YFEEovCc?si=RA8e3ZM1RtRe1jn3
+
 import pyrebase
 from getpass import getpass
 
@@ -22,19 +25,15 @@ password = 'ocnOIJ028021@ww'
 #? Create User
 # user = auth.create_user_with_email_and_password(email, password)
 
-##? Login to user
+#? Login to user
 # login = auth.sign_in_with_email_and_password(email, password)
 
-# ##! for this, dont type the password, we can aprove by email
-# ##? Send Email verification
+#! for this, dont type the password, we can aprove by email for login
+#? Send Email verification
 # auth.send_email_verification(login['idToken'])
-
-
 
 #? Reset Password
 auth.send_password_reset_email(email)
-
-
 
 
 print('Sucess....')
