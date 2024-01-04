@@ -33,7 +33,31 @@ password = 'ocnOIJ028021@ww'
 # auth.send_email_verification(login['idToken'])
 
 #? Reset Password
-auth.send_password_reset_email(email)
-
+# auth.send_password_reset_email(email)
 
 print('Sucess....')
+
+# -----------------------------------------To Catch Errors Output---------------------------------------------------
+
+try:
+    login = auth.sign_in_with_email_and_password(email, password)
+    print(str(login) + '\n\n')
+    print(login['email'])
+
+except Exception as e:
+    Er = e.args[0]
+    print(str(Er) + '\n\n')
+
+    Er_2 = e.args[1]
+    print(str(Er_2) + '\n\n')
+
+
+    # Save it as a json andthen get the specific error message
+    jsonEr = json.loads(Er_2)
+
+    # print(jsonEr)
+    print(jsonEr['error']['code'])
+    print(jsonEr['error']['message'])
+
+
+
