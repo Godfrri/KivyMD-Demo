@@ -39,25 +39,66 @@ print('Sucess....')
 
 # -----------------------------------------To Catch Errors Output---------------------------------------------------
 
+# try:
+#     login = auth.sign_in_with_email_and_password(email, password)
+#     print(str(login) + '\n\n')
+#     print(login['email'])
+
+# except Exception as e:
+#     Er = e.args[0]
+#     print(str(Er) + '\n\n')
+
+#     Er_2 = e.args[1]
+#     print(str(Er_2) + '\n\n')
+
+
+#     # Save it as a json andthen get the specific error message
+#     jsonEr = json.loads(Er_2)
+
+#     # print(jsonEr)
+#     print(jsonEr['error']['code'])
+#     print(jsonEr['error']['message'])
+
+
+# -----------------------------------------To Login Errors---------------------------------------------------
+# try:
+#     fireb_auth.create_user_with_email_and_password(email, password)
+    
+# except Exception as e:
+#     Er = json.loads(e.args[1])
+
+#     if Er['error']['message'] == 'EMAIL_EXISTS':
+#         print('Email already exists, please try Signing in again')
+    
+#     elif Er['error']['message'] == 'WEAK_PASSWORD : Password should be at least 6 characters':
+#         print('Password should be at least 6 characters')
+
+#     elif Er['error']['message'] == 'INVALID_EMAIL':
+#         print('Invalid Email Address, please try again')
+
+#     elif Er['error']['message'] == 'MISSING_PASSWORD':
+#         print('Please enter a password')
+
+#     else:
+#         print (Er)
+
+
+# -----------------------------------------To Login Errors---------------------------------------------------
+
 try:
-    login = auth.sign_in_with_email_and_password(email, password)
-    print(str(login) + '\n\n')
-    print(login['email'])
+    fireb_auth.sign_in_with_email_and_password(email, password)
 
 except Exception as e:
-    Er = e.args[0]
-    print(str(Er) + '\n\n')
+    Er = json.loads(e.args[1])
 
-    Er_2 = e.args[1]
-    print(str(Er_2) + '\n\n')
+    if Er['error']['message'] == 'INVALID_LOGIN_CREDENTIALS':
+        print('Invalid login credentials, please try again')
 
+    elif Er['error']['message'] == 'INVALID_EMAIL':
+        print('Invalid Email Address, please try again')
 
-    # Save it as a json andthen get the specific error message
-    jsonEr = json.loads(Er_2)
-
-    # print(jsonEr)
-    print(jsonEr['error']['code'])
-    print(jsonEr['error']['message'])
+    else:
+        print (Er)
 
 
 
